@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Military Communication</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="text.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  
+</head>
+<body>
+<br/> 
+  <nav class="navbar navbar-inverse">
+    <div class="containerfluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Military Communication</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li "><a href="/">Home</a></li>
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Login</a></li>
+        <li ><a href="/sendmsg">Send Message</a></li>
+        <li class="active"><a href="/sendfile">Send File</a></li>
+      </ul>
+    </div>
+    </nav>
+
+    <div class="container">
+        <h2>Send Files</h2>
+        <div>
+            <label for="walletAddress">Your Wallet Address:</label>
+            <input type="text" id="walletAddress" class="form-control">
+            
+            <br>
+            <label for="toAddresses">To Addresses (comma-separated):</label>
+            <input type="text" id="toAddresses" class="form-control">
+            <br>
+            <label for="fileHash">File Hash:</label>
+            <input type="text" id="fileHash" class="form-control">
+            <br>
+            <button onclick="sendFiles()" class="btn btn-info">Send Files</button>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Add your JavaScript code for interacting with the blockchain here
+    
+        async function sendFiles() {
+            const walletAddress = document.getElementById("walletAddress").value;
+            const fileHash = document.getElementById("fileHash").value;
+            const toAddresses = document.getElementById("toAddresses").value.split(',');
+    
+            // Add logic to interact with the Solidity contract and call the sendFiles function
+            // using a Web3 provider (e.g., MetaMask or local provider)
+            // You may use web3.js or ethers.js for this purpose
+            // Example:
+            const communicationContract = new web3.eth.Contract(contractABI, contractAddress);
+             await communicationContract.methods.sendFiles(walletAddress, fileHash, toAddresses).send({ from: yourAccount });
+    
+            alert("File sent successfully!");
+        }
+    </script>
+
+</body>
+</html>
